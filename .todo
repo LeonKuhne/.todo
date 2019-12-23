@@ -1,0 +1,20 @@
+-- Notes
+--  * = mvp signifier
+ 
+  [_] add
+*  [-] add regular checklist item
+   [ ] add subtasks to item
+   [ ] add comment parsing and ignore new lines
+   [ ] add an item with an mvp flag
+  [_] edit
+*  [-] complete checklist items
+   [ ] mark checklist items as in progress
+   [ ] edit checklist items
+   [ ] tag an item as mvp
+  [_] view
+*  [-] view all checklist items
+   [ ] view all incompleted items
+   [ ] view all in-progress items 
+   [ ] view my items
+    [ ] automatically assign username to items when marking as in-progress
+    [ ] view items I'm currently working on

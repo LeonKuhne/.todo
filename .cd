@@ -1,0 +1,18 @@
+#!/bin/bash
+echo "Bash CLI Checklist Manager"
+cat .todo
+
+echo -e "\nCommands to implement: (add [subNum] text, edit [subNum] [text], list)"
+echo "if edit doesn't specify text, print out the task text, then prompt the user to replace it"
+echo "subNum is optional and doesn't need to be specified for any command"
+echo "if subNum isn't specified for edit, then the last edited/created item is edited"
+echo ""
+echo "the .todo file currently contains what the `todo list` will return"
+
+# eventual commands
+./todo.sh add "this is a test item"
+./todo.sh list
+./todo.sh edit "this is a real item" # same as bellow
+./todo.sh edit --last "this is a real item"
+./todo.sh list
+./todo.sh edit 4 "" 
