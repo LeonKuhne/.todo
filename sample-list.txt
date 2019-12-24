@@ -20,3 +20,4 @@
    [ ] view my items
     [ ] automatically assign username to items when marking as in-progress
     [ ] view items I'm currently working on
+  [ ] add to github
