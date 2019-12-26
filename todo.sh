@@ -29,8 +29,8 @@ case $1 in
 
   "add")
     # check if item exists in todo list
-    if [ "$(grep "$2" .todo/list)" != "" ]; then
-    similarText="$(grep "$2" .todo/list)"
+    if [ -f .todo/list ] && [ "$(grep "$2" .todo/list)" != "" ]; then
+      similarText="$(grep "$2" .todo/list)"
       echo "Found similar lines, stopping:"
       grep "$2" .todo/list
     else
@@ -38,7 +38,7 @@ case $1 in
       echo "[ ] $2" >> .todo/list
     
       # update the cursor to track the new recently added line
-      fileLen=`wc -l ~/Desktop/todo/todo.sh | awk '{print $1}'`
+      fileLen=`wc -l ~/.todo/todo.sh | awk '{print $1}'`
       recentLine="$fileLen"
     
       # update user
