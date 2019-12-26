@@ -38,7 +38,7 @@ case $1 in
       echo "[ ] $2" >> .todo/list
     
       # update the cursor to track the new recently added line
-      fileLen=`wc -l todo.sh | awk '{print $1}'`
+      fileLen=`wc -l ~/Desktop/todo/todo.sh | awk '{print $1}'`
       recentLine="$fileLen"
     
       # update user
