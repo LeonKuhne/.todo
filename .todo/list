@@ -1,2 +1,55 @@
-[-] I want all of the items
-[x] list items by category
+-- Notes
+--  * = mvp signifier
+
+-- Release Version: 1.0
+-- Features: add, edit, view, and delete list items
+* [x] add
+*  [x] add regular checklist item
+* [x] edit
+*  [x] complete checklist items
+   [x] delete checklist items
+   [x] mark checklist items as in progress
+   [x] edit checklist item text
+* [x] view
+*  [x] view all checklist items
+   [x] view all incompleted items
+   [x] view all in-progress items 
+  [x] publish
+   [x] add to github
+ 
+-- Current Version 1.1
+-- Features: remember last edited line, subtask items, move items, and colorized list views 
+  [ ] publish
+   [ ] add to AUR (arch user repo)
+* [ ] fixes 
+*  [ ] remember last edited line (currently not working)
+* [_] add
+*  [ ] add subtasks to item
+   [ ] parent items are set to '_' if any children in progress
+   [x] add comment parsing and ignore new lines
+* [ ] edit
+*  [ ] move items around
+* [_] view
+*  [-] colorize output (using sed)
+
+-- Future Version 2.1
+-- Features: comment parsing, tagging mvp
+  [ ] add
+   [ ] add an item with a tag using the optional flag: "--tag [mvp]"
+  [ ] view
+   [ ] view filtering by tag (mvp) using an optional flag
+   [ ] change default "todo list" to list only the current version of items
+  [ ] mvp tag
+   [ ] tag an item as mvp ("todo tag [itemNum]")
+   [ ] release mvp ("todo release [version] [description]")
+    [ ] archive completed tasks that happened during that release under the mvp tag
+    [ ] list mvp items by version (eg. todo list --release [number]) 
+
+
+-- Future Version 3.1
+-- Features: sequential items, my items
+  [ ] sequential tasks (tasks that have required previous tasks)
+  [ ] view
+   [ ] automatically assign username to items when marking as in-progress
+   [ ] view items I'm currently working on
+

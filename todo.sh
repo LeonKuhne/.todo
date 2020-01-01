@@ -20,8 +20,18 @@ function mark() {
   if [ "$1" != "" ]; then
     recentLine="$1"
   fi
-
+  
   sed -i "$(echo $recentLine)s/\[.*\]/\[$symbol\]/" .todo/list
+  
+  printLn ".*"
+}
+
+function printLn() {
+  # take out comments
+  formatted=$(nl -v 2 .todo/list | sed 's/--.*//')
+  echo "$formatted" | sed -n "/\[$1\]/p"
+ 
+  #.todo/list
 }
 
 case $1 in
@@ -53,18 +63,21 @@ case $1 in
 	"-")
 	  ;&
         "current")
-          nl .todo/list | sed -n '/\[-\]/p'
+          printLn "-"
        	  ;;
+        "+")
+	  echo "accepted but :( please use 'x' not '+'"
+	  ;&
         "x")
 	  ;&
         "done")
-          nl .todo/list | sed -n '/\[x\]/p'
+          printLn "x"
        	  ;;
 	"all")
-          nl .todo/list
+          printLn ".*"
 	  ;;
         *)
-		nl .todo/list | sed -n '/\[[ -]\]/p'
+          printLn "[ -]"
 	  ;;
       esac
     ;;
@@ -80,7 +93,6 @@ case $1 in
     do
       read -p "Please enter line number (recent not cached): " recentLine
     done
-    
     ;;& # fallthrough that continues searching :D this makes me very happy
   
 
@@ -107,35 +119,39 @@ case $1 in
     # select text
     textToEdit=`sed -n "$(echo $recentLine)p" .todo/list | sed "s/.*\[\(.*\)\] //"`
     
-    echo "$textToEdit"
+    # prompt the user if tno text was specified
+    while [[ "$text" == "" ]]
+    do
+      sed -n "$(echo $recentLine)p" .todo/list
+      read -p "Replace with text: " recentLine
+    done
+    
+
     # edit text
     sed -i "$(echo $recentLine)s/$textToEdit/$text/" .todo/list
     #sed -in "$(echo $recentLine)s/$textToEdit/$text/" .todo/list
     
     # update user
     echo -e " * changed line from \"$cRed$textToEdit$cReset\" to \"$cGreen$text$cReset\""
-    nl .todo/list
+    printLn ".*"
     ;;
   
   
   "complete")
     mark "$recentLine" "x"
     echo " * marked item completed"
-    nl .todo/list
     ;;
 
 
   "start")
     mark "$recentLine" "-"
     echo " * marked item as in-progress"
-    nl .todo/list
     ;;
 
 
   "reset")
     mark "$recentLine" " "
     echo " * unmarked item"
-    nl .todo/list
     ;;
   
 

@@ -2,7 +2,6 @@
 echo "Bash CLI Checklist Manager"
 cat sample-list.txt
 
-echo -e "\nCommands to implement: (add [subNum] text, edit [subNum] [text], list)"
 echo "if edit doesn't specify text, print out the task text, then prompt the user to replace it"
 echo "subNum is optional and doesn't need to be specified for any command"
 echo "if subNum isn't specified for edit, then the last edited/created item is edited"
