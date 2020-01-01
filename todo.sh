@@ -105,7 +105,7 @@ case $1 in
     fi
     
     # select text
-    textToEdit=`sed -n "$(echo $recentLine)p" .todo/list | sed "s/.*\[\(.*\)\]//"`
+    textToEdit=`sed -n "$(echo $recentLine)p" .todo/list | sed "s/.*\[\(.*\)\] //"`
     
     echo "$textToEdit"
     # edit text

@@ -1,18 +1,19 @@
 -- Notes
+Version: 1.0
 --  * = mvp signifier
  
 * [_] add
 *  [x] add regular checklist item
-   [-] add subtasks to item
+   [ ] add subtasks to item
    [ ] add comment parsing and ignore new lines
    [ ] add an item with an mvp flag
 * [_] edit
 *  [x] complete checklist items
-   [ ] delete checklist items
-   [ ] move items around
-   [ ] mark checklist items as in progress
-   [ ] edit checklist items
+   [x] delete checklist items
+   [x] mark checklist items as in progress
+   [x] edit checklist item text
    [ ] tag an item as mvp
+   [ ] move items around
 * [_] view
 *  [x] view all checklist items
    [ ] colorize output (using sed)
