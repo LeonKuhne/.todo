@@ -17,8 +17,8 @@ Version: 1.0
 * [_] view
 *  [x] view all checklist items
    [ ] colorize output (using sed)
-   [ ] view all incompleted items
-   [ ] view all in-progress items 
+   [x] view all incompleted items
+   [x] view all in-progress items 
    [ ] view my items
     [ ] automatically assign username to items when marking as in-progress
     [ ] view items I'm currently working on
