@@ -2,22 +2,24 @@
 --  * = mvp signifier
  
 * [_] add
-*  [-] add regular checklist item
-   [ ] add subtasks to item
+*  [x] add regular checklist item
+   [-] add subtasks to item
    [ ] add comment parsing and ignore new lines
    [ ] add an item with an mvp flag
 * [_] edit
-*  [-] complete checklist items
+*  [x] complete checklist items
+   [ ] delete checklist items
    [ ] move items around
    [ ] mark checklist items as in progress
    [ ] edit checklist items
    [ ] tag an item as mvp
 * [_] view
-*  [-] view all checklist items
+*  [x] view all checklist items
    [ ] colorize output (using sed)
    [ ] view all incompleted items
    [ ] view all in-progress items 
    [ ] view my items
     [ ] automatically assign username to items when marking as in-progress
     [ ] view items I'm currently working on
-  [ ] add to github
+  [x] add to github
+  [ ] add to AUR (arch user repo)

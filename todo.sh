@@ -17,7 +17,7 @@ cReset="\e[39m"
 function mark() {
   symbol="$2"
 
-  if [ "$1" == "" ]; then
+  if [ "$1" != "" ]; then
     recentLine="$1"
   fi
 
@@ -49,7 +49,24 @@ case $1 in
 
 
   "list")
-    nl .todo/list
+      case $2 in
+	"-")
+	  ;&
+        "current")
+          nl .todo/list | sed -n '/\[-\]/p'
+       	  ;;
+        "x")
+	  ;&
+        "done")
+          nl .todo/list | sed -n '/\[x\]/p'
+       	  ;;
+	"all")
+          nl .todo/list
+	  ;;
+        *)
+		nl .todo/list | sed -n '/\[[ -]\]/p'
+	  ;;
+      esac
     ;;
   
 
