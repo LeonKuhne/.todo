@@ -1,8 +1,9 @@
 #!/bin/bash
 
-############
-# MVP v0.1 #
-############
+###############################
+# MVP v0.1 # Init  # 01/--/20 #
+# REL v0.2 # Fixes # 06/11/20 #
+###############################
 
 # initialize
 if [ ! -d "./.todo/" ]; then
@@ -28,10 +29,8 @@ function mark() {
 
 function printLn() {
   # take out comments
-  formatted=$(nl -v 2 .todo/list | sed 's/--.*//')
+  formatted=$(nl -v 1 .todo/list | sed 's/--.*//')
   echo "$formatted" | sed -n "/\[$1\]/p"
- 
-  #.todo/list
 }
 
 case $1 in
@@ -48,7 +47,7 @@ case $1 in
       echo "[ ] $2" >> .todo/list
     
       # update the cursor to track the new recently added line
-      fileLen=`wc -l ~/.todo/todo.sh | awk '{print $1}'`
+      fileLen=`wc -l .todo/list | awk '{print $1}'`
       recentLine="$fileLen"
     
       # update user
@@ -76,7 +75,10 @@ case $1 in
 	"all")
           printLn ".*"
 	  ;;
-        *)
+	"help")
+	  echo "todo list [-/current, +/x/done, all]"
+	  ;;
+	*)
           printLn "[ -]"
 	  ;;
       esac
@@ -156,7 +158,7 @@ case $1 in
   
 
   *)
-    echo -e "For more help see \"\e[92mtodo [add, complete, list] help\e[39m\". Go deeper!"
+    echo -e "For more help see \"\e[92mtodo [list, add, edit, start, complete, reset, delete] help\e[39m\". Go deeper!"
     ;;
 
 
